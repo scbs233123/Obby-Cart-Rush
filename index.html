@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- 引入 jQuery（GameMonetize 视频脚本核心依赖） -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <!-- Google tag (gtag.js) - 全局分析代码 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JFJSE3ENE"></script>
   <script>
@@ -25,18 +27,6 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7325130017318424" crossorigin="anonymous"></script>
 
   <style>
-   /* 解决 GameMonetize 视频按钮在手机端无法点击的问题 */
-#gamemonetize-video {
-  touch-action: manipulation !important;
-  -webkit-tap-highlight-color: transparent;
-}
-
-#gamemonetize-video * {
-  pointer-events: auto !important;
-}
-
-
-    
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { 
       background-color: #f7f6f1; 
@@ -136,11 +126,26 @@
       margin-bottom: 10px; 
     }
 
-    /* 视频演示组件圆角美化 */
-    #gamemonetize-video {
-      margin-top: 15px;
+    /* 📌 视频播放器外层独立渲染环境与触控修复 */
+    #gamemonetize-video-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      max-height: 60vh;
+      background: #000;
       border-radius: 8px;
       overflow: hidden;
+      margin-top: 15px;
+      isolation: isolate; /* 创建独立 Stacking Context，防止外部 CSS 阻挡按钮层级 */
+    }
+
+    #gamemonetize-video, 
+    #gamemonetize-video-container iframe {
+      width: 100% !important;
+      height: 100% !important;
+      border: none !important;
+      pointer-events: auto !important;
+      touch-action: manipulation !important;
     }
 
     footer { 
@@ -185,35 +190,26 @@
       <h2>Controls & Gameplay</h2>
       <p>The controls are simple: use <strong>W, A, D</strong> or the <strong>Up, Left, Right Arrow Keys</strong> to steer and drive your taxi cab.</p>
       <p>Give it your all to climb the leaderboard! If you need help getting started, feel free to check out the video walkthrough at the bottom of the page.</p>
-<!-- 📌 针对移动端适配修复的完整官方代码 -->
-<h2>Video Walkthrough</h2>
-<div id="gamemonetize-video" style="position: relative; width: 100%; height: 480px; max-height: 60vh; background: #000; border-radius: 8px; overflow: hidden; -webkit-overflow-scrolling: touch;"></div>
 
-<script type="text/javascript">
-   window.VIDEO_OPTIONS = {
-       gameid : "5jzzwvgh5ljmtvgawdsjtio83tpqry6f",
-       width  : "100%",
-       height : "100%",
-       color  : "#3f007e",
-       getkids : "false"
-   };
-   (function (a, b, c) {
-      var d = a.getElementsByTagName(b)[0];
-      a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js", d.parentNode.insertBefore(a, d))
-   })(document, "script", "gamemonetize-video-api"); 
-</script>
+      <!-- 📌 视频演示完整模块 -->
+      <h2>Video Walkthrough</h2>
+      <div id="gamemonetize-video-container">
+        <div id="gamemonetize-video"></div>
+      </div>
 
-<style>
-  /* 解决移动端点击穿透和按钮阻挡问题 */
-  #gamemonetize-video iframe {
-    width: 100% !important;
-    height: 100% !important;
-    pointer-events: auto !important;
-    touch-action: manipulation !important;
-  }
-</style>
-
-
+      <script type="text/javascript">
+         window.VIDEO_OPTIONS = {
+             gameid : "5jzzwvgh5ljmtvgawdsjtio83tpqry6f",
+             width  : "100%",
+             height : "100%",
+             color  : "#3f007e",
+             getkids : "false"
+         };
+         (function (a, b, c) {
+            var d = a.getElementsByTagName(b)[0];
+            a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js", d.parentNode.insertBefore(a, d))
+         })(document, "script", "gamemonetize-video-api"); 
+      </script>
     </article>
 
     <footer>
