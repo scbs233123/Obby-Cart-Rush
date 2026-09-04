@@ -176,21 +176,21 @@
 
       <!-- 📌 箭头指向的位置：游戏演示视频 -->
 <!-- 📌 替换 article 内部的视频代码段 -->
-<h2>Video Walkthrough</h2>
-<div id="gamemonetize-video" style="width: 100%; min-height: 480px; background: #000; border-radius: 8px;"></div>
+<div id="gamemonetize-video"></div>
 <script type="text/javascript">
    window.VIDEO_OPTIONS = {
-       gameid: "5jzzwvgh5ljmtvgawdsjtio83tpqry6f",
-       width: "100%",
-       height: "480px",
-       color: "#ff4757",
-       getkids: "false"
+       gameid : "5jzzwvgh5ljmtvgawdsjtio83tpqry6f",
+       width  : "100%",
+       height : "480px",
+       color  : "#3f007e",
+       getAds  : "false"
    };
    (function (a, b, c) {
-       var d = a.getElementsByTagName(b)[0];
-       a.getElementById(c) || ((a = a.createElement(b)), (a.id = c), (a.src = "https://api.gamemonetize.com/video.js"), d.parentNode.insertBefore(a, d));
-   })(document, "script", "gamemonetize-video-api");
-</script>
+      var d = a.getElementsByTagName(b)[0];
+      a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js", d.parentNode.insertBefore(a, d))
+   })(document, "script", "gamemonetize-video-api"); 
+</script>  
+
     </article>
 
     <footer>
