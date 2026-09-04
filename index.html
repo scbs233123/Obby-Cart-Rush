@@ -25,7 +25,15 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7325130017318424" crossorigin="anonymous"></script>
 
   <style>
-   
+   /* 解决 GameMonetize 视频按钮在手机端无法点击的问题 */
+#gamemonetize-video {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#gamemonetize-video * {
+  pointer-events: auto !important;
+}
 
 
     
