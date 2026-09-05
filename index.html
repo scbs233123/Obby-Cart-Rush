@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 引入 jQuery（GameMonetize 视频脚本核心依赖） -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- Google tag (gtag.js) - 全局分析代码 -->
@@ -16,14 +15,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO 核心标签 -->
-  <title>Play Taxi Rush Online - Free Unblocked Driving Game</title>
-  <meta name="description" content="Play Taxi Rush online for free! Drive your taxi cab through city streets, deliver passengers safely, earn money for upgrades, and climb the leaderboard in this exciting 3D driving game.">
-  <meta name="keywords" content="taxi rush, taxi game, driving game, free online games, unblocked games, browser games">
+  <!-- SEO 首页核心标签 -->
+  <title>Y8Games - Play Free Online Games & Unblocked Browser Games</title>
+  <meta name="description" content="Play the best free online games on Y8Games! Discover top unblocked driving, action, puzzle, and arcade games with no downloads required.">
+  <meta name="keywords" content="y8 games, online games, free browser games, unblocked games, taxi rush, driving games">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://y8games.top/games/taxi-rush/">
+  <link rel="canonical" href="https://y8games.top/">
 
-  <!-- AdSense 广告代码脚本 -->
+  <!-- AdSense 广告脚本 -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7325130017318424" crossorigin="anonymous"></script>
 
   <style>
@@ -35,10 +34,10 @@
       line-height: 1.5;
     }
 
-    /* 容器控制在 1000px 中等最佳宽度 */
+    /* 全局主容器 */
     .container { 
       width: 90%;
-      max-width: 1000px; 
+      max-width: 1200px; 
       margin: 0 auto; 
       padding: 15px 0; 
     }
@@ -49,45 +48,26 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px; 
-      padding-bottom: 10px;
+      padding-bottom: 15px;
       border-bottom: 1px solid #eaeaea;
     }
     header .logo { 
-      font-size: 1.8rem; 
+      font-size: 2rem; 
       font-weight: 900; 
       color: #ff4757; 
       text-decoration: none; 
       letter-spacing: 1px; 
     }
     header .logo span { color: #ffa502; }
-    header h1 { 
-      font-size: 1.4rem; 
-      font-weight: bold; 
-      color: #333; 
+    
+    .nav-links a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 15px;
+      font-size: 0.95rem;
     }
-
-    /* 自适应游戏窗口控制 */
-    .game-wrapper {
-      position: relative;
-      width: 100%;
-      height: 60vh; /* 占屏幕高度的 60% */
-      max-height: 650px;
-      min-height: 400px;
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
-    .game-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
+    .nav-links a:hover { color: #ff4757; }
 
     /* 广告占位槽 */
     .custom-ad-slot { 
@@ -99,58 +79,78 @@
       border: 1px dashed #ddd;
     }
 
-    /* 文章与文本介绍排版 */
-    .article-section { 
-      max-width: 850px;
-      margin: 15px auto 0 auto;
-      background: #ffffff; 
-      padding: 25px; 
-      border-radius: 12px; 
-      border: 1px solid #eaeaea;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .article-section h2 { 
-      font-size: 1.2rem; 
-      margin-top: 20px; 
-      margin-bottom: 8px; 
-      color: #ff4757; 
-      border-bottom: 1px solid #eee;
-      padding-bottom: 4px;
-    }
-    .article-section h2:first-of-type {
-      margin-top: 0;
-    }
-    .article-section p { 
-      font-size: 0.95rem; 
-      color: #555; 
-      margin-bottom: 10px; 
+    /* 游戏网格布局 (Grid) */
+    .section-title {
+      font-size: 1.4rem;
+      margin: 20px 0 15px 0;
+      color: #222;
     }
 
-    /* 📌 视频播放器外层独立渲染环境与触控修复 */
-    #gamemonetize-video-container {
-      position: relative;
-      width: 100%;
-      height: 480px;
-      max-height: 60vh;
-      background: #000;
-      border-radius: 8px;
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    /* 游戏卡片设计 */
+    .game-card {
+      background: #ffffff;
+      border-radius: 10px;
       overflow: hidden;
-      margin-top: 15px;
-      isolation: isolate; /* 创建独立 Stacking Context，防止外部 CSS 阻挡按钮层级 */
+      border: 1px solid #eaeaea;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    .game-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      background: #eee;
+    }
+    .game-card .info {
+      padding: 10px;
+      text-align: center;
+    }
+    .game-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    #gamemonetize-video, 
-    #gamemonetize-video-container iframe {
-      width: 100% !important;
-      height: 100% !important;
-      border: none !important;
-      pointer-events: auto !important;
-      touch-action: manipulation !important;
+    /* 首页底部 SEO 介绍文章 */
+    .seo-section {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #eaeaea;
+      margin-top: 30px;
+    }
+    .seo-section h2 {
+      font-size: 1.2rem;
+      color: #ff4757;
+      margin-bottom: 10px;
+    }
+    .seo-section p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 10px;
     }
 
     footer { 
       text-align: center; 
-      padding: 25px 0; 
+      padding: 30px 0; 
       font-size: 0.85rem; 
       color: #7f8c8d; 
     }
@@ -162,54 +162,51 @@
   <div class="container">
     <header>
       <a href="/" class="logo">Y8<span>GAMES</span></a>
-      <h1>Taxi Rush</h1>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="#popular">Popular</a>
+        <a href="#about">About</a>
+      </nav>
     </header>
 
-    <!-- 📌 位置 2：自定义广告位 A（游戏上方） -->
-    <div class="custom-ad-slot" id="ad-slot-top">
+    <!-- 首页顶部广告位 -->
+    <div class="custom-ad-slot">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-7325130017318424"
-           data-ad-slot="YOUR_AD_SLOT_ID"
+           data-ad-slot="YOUR_HOMEPAGE_TOP_AD_SLOT"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- 📌 位置 3：Taxi Rush 游戏窗口 -->
-    <div class="game-wrapper">
-      <iframe src="https://html5.gamemonetize.games/5jzzwvgh5ljmtvgawdsjtio83tpqry6f//" title="Taxi Rush" scrolling="no" allowfullscreen></iframe>
+    <!-- 热门游戏推荐区域 -->
+    <h2 class="section-title" id="popular">Trending Games</h2>
+    <div class="game-grid">
+      
+      <!-- 游戏卡片 1：Taxi Rush -->
+      <a href="/games/taxi-rush/" class="game-card">
+        <img src="https://img.gamemonetize.com/5jzzwvgh5ljmtvgawdsjtio83tpqry6f/512x512.jpg" alt="Taxi Rush">
+        <div class="info">
+          <h3>Taxi Rush</h3>
+        </div>
+      </a>
+
+      <!-- 预留其他游戏卡片示例（后续按这个格式复制添加） -->
+      <a href="#" class="game-card">
+        <img src="https://via.placeholder.com/512x512?text=Coming+Soon" alt="Coming Soon">
+        <div class="info">
+          <h3>More Games Soon</h3>
+        </div>
+      </a>
+
     </div>
 
-    <!-- 📌 位置 4：自定义广告位 B（游戏下方） -->
-   
-    <article class="article-section">
-      <h2>How to Play Taxi Rush</h2>
-      <p>You are a taxi driver navigating through busy city streets, responsible for safely delivering passengers to their destinations. Doing so earns you money to upgrade your vehicle or purchase brand-new cars!</p>
-
-      <h2>Controls & Gameplay</h2>
-      <p>The controls are simple: use <strong>W, A, D</strong> or the <strong>Up, Left, Right Arrow Keys</strong> to steer and drive your taxi cab.</p>
-      <p>Give it your all to climb the leaderboard! If you need help getting started, feel free to check out the video walkthrough at the bottom of the page.</p>
-
-      <!-- 📌 视频演示完整模块 -->
-      <h2>Video Walkthrough</h2>
-      <div id="gamemonetize-video-container">
-        <div id="gamemonetize-video"></div>
-      </div>
-
-      <script type="text/javascript">
-         window.VIDEO_OPTIONS = {
-             gameid : "5jzzwvgh5ljmtvgawdsjtio83tpqry6f",
-             width  : "100%",
-             height : "100%",
-             color  : "#3f007e",
-             getkids : "false"
-         };
-         (function (a, b, c) {
-            var d = a.getElementsByTagName(b)[0];
-            a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js", d.parentNode.insertBefore(a, d))
-         })(document, "script", "gamemonetize-video-api"); 
-      </script>
+    <!-- 首页底部 SEO 增强文本（提升 Google 收录权重） -->
+    <article class="seo-section" id="about">
+      <h2>Free Online Games on Y8Games</h2>
+      <p>Welcome to Y8Games.top, your ultimate destination for free unblocked browser games! We feature a curated collection of high-quality HTML5 games that you can play directly in your web browser on desktop, tablet, or mobile devices.</p>
+      <p>Whether you are looking for fast-paced driving simulations like <strong>Taxi Rush</strong>, thrilling action adventures, or casual puzzles, Y8Games offers instant play with no downloads or installation required.</p>
     </article>
 
     <footer>
