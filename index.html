@@ -3,7 +3,7 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- Google tag (gtag.js) - 全局分析代码 -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JFJSE3ENE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,7 +15,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO 首页核心标签 -->
   <title>Y8Games - Play Free Online Games & Unblocked Browser Games</title>
   <meta name="description" content="Play the best free online games on Y8Games! Discover top unblocked driving, action, puzzle, and arcade games with no downloads required.">
   <meta name="keywords" content="y8 games, online games, free browser games, unblocked games, taxi rush, driving games">
@@ -34,7 +33,6 @@
       line-height: 1.5;
     }
 
-    /* 全局主容器 */
     .container { 
       width: 90%;
       max-width: 1200px; 
@@ -42,7 +40,7 @@
       padding: 15px 0; 
     }
 
-    /* 顶部 Navbar 导航 */
+    /* 顶部 Navbar 与欢迎标语样式 */
     header { 
       display: flex;
       justify-content: space-between;
@@ -50,7 +48,16 @@
       margin-bottom: 20px; 
       padding-bottom: 15px;
       border-bottom: 1px solid #eaeaea;
+      flex-wrap: wrap;
+      gap: 10px;
     }
+    
+    .brand-zone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
     header .logo { 
       font-size: 2rem; 
       font-weight: 900; 
@@ -59,6 +66,16 @@
       letter-spacing: 1px; 
     }
     header .logo span { color: #ffa502; }
+
+    .welcome-text {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+      background: #ffffff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid #eee;
+    }
     
     .nav-links a {
       color: #555;
@@ -69,7 +86,7 @@
     }
     .nav-links a:hover { color: #ff4757; }
 
-    /* 广告占位槽 */
+    /* 广告位 */
     .custom-ad-slot { 
       margin: 15px 0; 
       text-align: center; 
@@ -79,13 +96,13 @@
       border: 1px dashed #ddd;
     }
 
-    /* 游戏网格布局 (Grid) */
     .section-title {
       font-size: 1.4rem;
       margin: 20px 0 15px 0;
       color: #222;
     }
 
+    /* 游戏卡片网格 */
     .game-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -93,7 +110,6 @@
       margin-bottom: 25px;
     }
 
-    /* 游戏卡片设计 */
     .game-card {
       background: #ffffff;
       border-radius: 10px;
@@ -129,23 +145,14 @@
       text-overflow: ellipsis;
     }
 
-    /* 首页底部 SEO 介绍文章 */
-    .seo-section {
+    /* 底部保留容器 */
+    .reserved-section {
       background: #ffffff;
-      padding: 25px;
+      padding: 20px;
       border-radius: 12px;
       border: 1px solid #eaeaea;
       margin-top: 30px;
-    }
-    .seo-section h2 {
-      font-size: 1.2rem;
-      color: #ff4757;
-      margin-bottom: 10px;
-    }
-    .seo-section p {
-      font-size: 0.95rem;
-      color: #666;
-      margin-bottom: 10px;
+      min-height: 80px;
     }
 
     footer { 
@@ -155,13 +162,20 @@
       color: #7f8c8d; 
     }
     footer a { color: #333; text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .welcome-text { display: none; }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <header>
-      <a href="/" class="logo">Y8<span>GAMES</span></a>
+      <div class="brand-zone">
+        <a href="/" class="logo">Y8<span>GAMES</span></a>
+        <span class="welcome-text">🎮 Welcome to Y8Games! Play Best Free Browser Games Online! 🔥</span>
+      </div>
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="#popular">Popular</a>
@@ -169,7 +183,7 @@
       </nav>
     </header>
 
-    <!-- 首页顶部广告位 -->
+    <!-- 顶部广告位 -->
     <div class="custom-ad-slot">
       <ins class="adsbygoogle"
            style="display:block"
@@ -180,19 +194,18 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- 热门游戏推荐区域 -->
+    <!-- 游戏推荐列表 -->
     <h2 class="section-title" id="popular">Trending Games</h2>
     <div class="game-grid">
       
-      <!-- 游戏卡片 1：Taxi Rush -->
-      <a href="/games/taxi-rush/" class="game-card">
+      <!-- 跳转到 /games/taxi-rush.html -->
+      <a href="/games/taxi-rush.html" class="game-card">
         <img src="https://img.gamemonetize.com/5jzzwvgh5ljmtvgawdsjtio83tpqry6f/512x512.jpg" alt="Taxi Rush">
         <div class="info">
           <h3>Taxi Rush</h3>
         </div>
       </a>
 
-      <!-- 预留其他游戏卡片示例（后续按这个格式复制添加） -->
       <a href="#" class="game-card">
         <img src="https://via.placeholder.com/512x512?text=Coming+Soon" alt="Coming Soon">
         <div class="info">
@@ -202,12 +215,10 @@
 
     </div>
 
-    <!-- 首页底部 SEO 增强文本（提升 Google 收录权重） -->
-    <article class="seo-section" id="about">
-      <h2>Free Online Games on Y8Games</h2>
-      <p>Welcome to Y8Games.top, your ultimate destination for free unblocked browser games! We feature a curated collection of high-quality HTML5 games that you can play directly in your web browser on desktop, tablet, or mobile devices.</p>
-      <p>Whether you are looking for fast-paced driving simulations like <strong>Taxi Rush</strong>, thrilling action adventures, or casual puzzles, Y8Games offers instant play with no downloads or installation required.</p>
-    </article>
+    <!-- 底部保留空白区域容器 -->
+    <section class="reserved-section" id="about">
+      <!-- 预留区域，文字已删除 -->
+    </section>
 
     <footer>
       <p>&copy; 2026 Y8Games. All rights reserved. | <a href="https://y8games.top">y8games.top</a></p>
