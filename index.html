@@ -26,8 +26,14 @@
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    /* 全局背景：叠加喜乐暗淡 Emoji 细条纹图案 */
     body { 
       background-color: #f7f6f1; 
+      /* 使用包含喜乐 Emoji (🎮😃🥳🎯🎲🚀✨⭐) 的 SVG 无缝平铺背景 */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='240'%3E%3Ctext x='10' y='30' font-size='20' opacity='0.08'%3E🎮%3C/text%3E%3Ctext x='70' y='60' font-size='20' opacity='0.08'%3E😃%3C/text%3E%3Ctext x='20' y='110' font-size='20' opacity='0.08'%3E🥳%3C/text%3E%3Ctext x='80' y='140' font-size='20' opacity='0.08'%3E🎯%3C/text%3E%3Ctext x='15' y='190' font-size='20' opacity='0.08'%3E🎲%3C/text%3E%3Ctext x='75' y='220' font-size='20' opacity='0.08'%3E✨%3C/text%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-attachment: fixed; /* 固定背景，滚动时更有质感 */
       color: #333; 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
       line-height: 1.5;
@@ -198,7 +204,7 @@
     <h2 class="section-title" id="popular">Trending Games</h2>
     <div class="game-grid">
       
-      <!-- 跳转到 /games/taxi-rush.html -->
+      <!-- Taxi Rush -->
       <a href="/games/taxi-rush.html" class="game-card">
         <img src="https://img.gamemonetize.com/5jzzwvgh5ljmtvgawdsjtio83tpqry6f/512x512.jpg" alt="Taxi Rush">
         <div class="info">
@@ -206,6 +212,7 @@
         </div>
       </a>
 
+      <!-- Haunted House Idle -->
       <a href="/games/haunted-house-idle.html" class="game-card">
         <img src="https://img.gamemonetize.com/ie1waj72yh5f8p95mhefx770jwssxk8l/512x512.jpg" alt="Haunted House Idle">
         <div class="info">
@@ -217,7 +224,7 @@
 
     <!-- 底部保留空白区域容器 -->
     <section class="reserved-section" id="about">
-      <!-- 预留区域，文字已删除 -->
+      <!-- 预留区域 -->
     </section>
 
     <footer>
